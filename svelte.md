@@ -1,5 +1,15 @@
 # Svelte Notes
-https://fireship.io/snippets/setup-google-maps-with-svelte/
+
+## References
+https://svelte.dev/tutorial/basics  
+
+https://fireship.io/snippets/setup-google-maps-with-svelte/  
+
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started  
+
+Google Maps Example  
+https://fireship.io/snippets/setup-google-maps-with-svelte/  
+
 
 ## Start New Project
 
@@ -8,11 +18,15 @@ Use `npx` and `degit` to clone the git repo sveltejs/template without project hi
 
     npx degit sveltejs/template appfolder-name
 
+### Install Dependancies
+
 `cd` into appfolder-name and run `npm install` to install the dependancies.  
 If you are using yarn, use `yarn` instead of yarn.
 
     cd appfolder-name
     npm install
+
+### Run Node Development Server
 
 Once the build completes run `npm run dev` or `yarn dev`.
 
