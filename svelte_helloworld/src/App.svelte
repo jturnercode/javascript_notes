@@ -28,7 +28,11 @@
   function handleClick() {
     count += 1;
   }
+
+  import Modal from "./Modal.svelte";
 </script>
+
+<Modal />
 
 <main>
   <!-- within curly braces any javascript is valid, even expressions -->
