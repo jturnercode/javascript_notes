@@ -32,7 +32,7 @@ Once the build completes run `npm run dev` or `yarn dev`.
 
     npm run dev
 
-This command will setup a development server on localhost port 5000 (http://localhost:5000)
+This command will setup a development server on localhost port 8080 (http://localhost:8080)
 
 To stop the server hold `ctrl+C` in terminal.
 
@@ -86,6 +86,19 @@ Rollup with the svelte plugin is needed to parse the file and build a file that 
 A .svelte file represents a component.  
 A svelte app can contain one or more components.  
 _More info to come on components_
+
+The compiler turns each component into a regular JavaScript class — just import it and instantiate with `new`:
+
+import App from './App.svelte';
+
+    const app = new App({
+        target: document.body,
+        props: {
+            // we'll learn about props later
+            answer: 42
+        }
+    });
+
 
 ## Keys
 
@@ -278,3 +291,49 @@ Below is and example of how keys in svelte keep html h3 elements with input box 
 
 ## Event Handling
 
+## CSS & Conditional Styles
+
+`global.css` can be placed inside `public` folder to control general elements.  
+
+Else each svelete component `<style>` section will control the component css. The css specified here will not affect any other elements or components with possible similar names.    
+
+svelte will compile all the css into `bundle.css` file located in the `public/build` folder.
+
+Conditiional classes(styles) can be applied to elements based on a certain condition. You can have one element like a modal and style it different based on criteria by conditionally changing the class of the element.  
+
+Below code shows a conditional class with `class:promo={isPromo}`. A class of `promo` will be applied if `isPromo` is `true`.
+
+
+    <script>
+        let showModal = true;
+        let isPromo = true;
+    </script>
+
+    {#if showModal}
+        <div class="backdrop" class:promo={isPromo}>
+            <div class="modal">
+                <p>Sign up for offers!</p>
+            </div>
+        </div>
+    {/if}
+
+    <style>
+        .backdrop {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .modal {
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 10% auto;
+            text-align: center;
+            background: white;
+        }
+        .promo .modal {
+            background: crimson;
+            color: white;
+        }
+    </style>
